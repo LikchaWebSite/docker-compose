@@ -4,6 +4,11 @@ services:
     hostname: fe-app
     ports:
       - 81:3000
+  dockerhub-fetcher:
+    image: belshed/dockerhub-fetcher
+    hostname: dockerhub-fetcher
+    ports:
+      - 82:3333
   nginx:
     image: belshed/nginx
     ports:
