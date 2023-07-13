@@ -5,7 +5,7 @@ services:
     ports:
       - 81:3000
   nginx:
-    image: belshed/fe-app-nginx
+    image: belshed/nginx
     ports:
       - 80:80
     depends_on:
