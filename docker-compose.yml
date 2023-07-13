@@ -1,19 +1,11 @@
 services:
   fe-app:
     image: belshed/fe-app
-    build:
-      dockerfile: .
-      context: https://github.com/LikchaWebSite/landing.git
     hostname: fe-app
-    environment:
-      - MAP_URL=${MAP_URL}
     ports:
       - 81:3000
   nginx:
     image: belshed/fe-app-nginx
-    build:
-      dockerfile: ./nginx/
-      context: https://github.com/LikchaWebSite/landing.git
     ports:
       - 80:80
     depends_on:
