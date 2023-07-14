@@ -1,16 +1,19 @@
 services:
   fe-app:
     image: belshed/fe-app
+    pull_policy: 'always'
     hostname: fe-app
     ports:
       - 81:3000
   dockerhub-fetcher:
     image: belshed/dockerhub-fetcher
+    pull_policy: 'always'
     hostname: dockerhub-fetcher
     ports:
       - 82:3333
   nginx:
     image: belshed/nginx
+    pull_policy: 'always'
     ports:
       - 80:80
       - 443:443
