@@ -21,6 +21,8 @@ services:
       - type: bind
         source: /home/sergdenisov/certs
         target: /etc/ssl/private
+        bind:
+          create_host_path: true
     depends_on:
      - fe-app
      - dockerhub-fetcher
