@@ -19,7 +19,7 @@ services:
       - 443:443
     volumes:
       - type: bind
-        source: /etc/letsencrypt/live/www.volokut.ru
+        source: /home/sergdenisov/certs
         target: /etc/ssl/private
     depends_on:
      - fe-app
