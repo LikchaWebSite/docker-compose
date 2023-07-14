@@ -18,11 +18,7 @@ services:
       - 80:80
       - 443:443
     volumes:
-      - type: bind
-        source: /etc/letsencrypt/live/www.volokut.ru
-        target: /etc/ssl/private
-        bind:
-          create_host_path: true
+      - /etc/letsencrypt/live/www.volokut.ru:/etc/ssl/private
     depends_on:
      - fe-app
      - dockerhub-fetcher
