@@ -5,6 +5,16 @@ services:
     hostname: fe-app
     ports:
       - 81:3000
+  webhook:
+    image: almir/webhook
+    pull_policy: 'always'
+    hostname: webhook
+    ports:
+      - 9000:9000
+    volumes:
+      - /home/sergdenisov/webhooks/docker-pipe:/hostpipe
+      - /home/sergdenisov/webhooks:/etc/webhook
+    command: -verbose -hooks=/etc/webhook/hooks.json -hotreload
   nginx:
     image: belshed/nginx
     pull_policy: 'always'
