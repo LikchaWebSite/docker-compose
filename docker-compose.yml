@@ -12,7 +12,6 @@ services:
     ports:
       - 9000:9000
     volumes:
-      - /home/sergdenisov/webhooks/docker-pipe:/hostpipe
       - /home/sergdenisov/webhooks:/etc/webhook
     command: -verbose -hooks=/etc/webhook/hooks.json -hotreload
   nginx:
