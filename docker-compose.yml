@@ -5,12 +5,21 @@ services:
     hostname: fe-app
     ports:
       - 81:3000
-  dockerhub-fetcher:
-    image: belshed/dockerhub-fetcher
+  # dockerhub-fetcher:
+  #   image: belshed/dockerhub-fetcher
+  #   pull_policy: 'always'
+  #   hostname: dockerhub-fetcher
+  #   ports:
+  #     - 82:3333
+  webhook:
+    image: almir/webhook
     pull_policy: 'always'
-    hostname: dockerhub-fetcher
+    hostname: webhook
     ports:
-      - 82:3333
+      - 9000:9000
+    volumes:
+      /home/sergdenisov/webhooks:/etc/webhook
+    command: -verbose -hooks=/etc/webhook/hooks.json -hotreload
   nginx:
     image: belshed/nginx
     pull_policy: 'always'
@@ -21,4 +30,4 @@ services:
       - /etc/letsencrypt:/etc/ssl/private
     depends_on:
      - fe-app
-     - dockerhub-fetcher
+     - webhook
