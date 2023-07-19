@@ -6,7 +6,7 @@ services:
     ports:
       - 81:3000
   webhook:
-    image: almir/webhook
+    build: webhook.Dockerfile
     pull_policy: 'always'
     hostname: webhook
     ports:
