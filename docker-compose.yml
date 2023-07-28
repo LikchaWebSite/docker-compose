@@ -24,3 +24,4 @@ services:
       - /etc/letsencrypt:/etc/ssl/private
     depends_on:
      - fe-app
+     - webhook
