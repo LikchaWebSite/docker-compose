@@ -1,0 +1,15 @@
+[
+  {
+    "id": "dockerhub-webhook",
+    "success-http-response-code": 200,
+    "http-methods": ["POST"],
+    "command-working-directory": "/etc/webhook",
+    "execute-command": "redeploy.sh",
+    "response-headers": [
+      {
+        "name": "Access-Control-Allow-Origin",
+        "value": "*"
+      }
+    ]
+  }
+]

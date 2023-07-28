@@ -12,8 +12,8 @@ services:
     ports:
       - 9000:9000
     volumes:
-      - /home/sergdenisov/webhooks:/etc/webhook
-    command: -verbose -hooks=/etc/webhook/hooks.json -hotreload
+      - ./:/etc/webhook
+    command: -verbose -hooks=/etc/webhook/hooks.json
   nginx:
     image: belshed/nginx
     pull_policy: 'always'
