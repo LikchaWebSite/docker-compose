@@ -5,6 +5,7 @@ services:
     hostname: fe-app
     ports:
       - 81:3000
+    entrypoint: node .output/server/index.mjs
   webhook:
     image: almir/webhook
     pull_policy: 'always'
