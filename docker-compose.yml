@@ -14,6 +14,7 @@ services:
       - 9000:9000
     volumes:
       - /home/sergdenisov/webhooks:/etc/webhook
+      - /home/sergdenisov/webhooks/scripts:/opt/scripts
     command: -verbose -hooks=/etc/webhook/hooks.json
   nginx:
     image: belshed/nginx
