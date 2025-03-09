@@ -1,0 +1,7 @@
+[
+  {
+    "id": "redeploy",
+    "execute-command": "/home/sergdenisov/volokut/scripts/redeploy.sh",
+    "command-working-directory": "/home/sergdenisov/volokut"
+  }
+]

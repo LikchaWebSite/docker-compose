@@ -14,7 +14,7 @@ services:
       - 9000:9000
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
-      - /home/sergdenisov/webhooks:/etc/webhook
+      - ./webhooks:/etc/webhook
     command: -verbose -hooks=/etc/webhook/hooks.json
   nginx:
     image: belshed/nginx
