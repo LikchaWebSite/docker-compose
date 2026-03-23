@@ -2,28 +2,24 @@ services:
   fe-app:
     image: belshed/fe-app
     pull_policy: 'always'
-    hostname: fe-app
-    ports:
-      - 81:3000
+    container_name: volokut-fe-app
+    hostname: volokut-fe-app
+    networks:
+      - gateway-network
     entrypoint: node .output/server/index.mjs
   webhook:
     image: almir/webhook
     pull_policy: 'always'
-    hostname: webhook
-    ports:
-      - 9000:9000
+    container_name: volokut-webhook
+    hostname: volokut-webhook
+    networks:
+      - gateway-network
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - ./webhooks:/etc/webhook
     command: -verbose -hooks=/etc/webhook/hooks.json
-  nginx:
-    image: belshed/nginx
-    pull_policy: 'always'
-    ports:
-      - 80:80
-      - 443:443
-    volumes:
-      - /etc/letsencrypt:/etc/ssl/private
-    depends_on:
-     - fe-app
-     - webhook
+    
+networks:
+  gateway-network:
+    external: true
+    name: gateway-network
