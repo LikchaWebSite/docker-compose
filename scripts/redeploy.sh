@@ -1,5 +1,0 @@
-#!/bin/sh
-
-echo "REDEPLOY SCRIPT BEGINS"
-
-echo "REDEPLOY SCRIPT ENDS"

@@ -7,18 +7,7 @@ services:
     networks:
       - gateway-network
     entrypoint: node .output/server/index.mjs
-  webhook:
-    image: almir/webhook
-    pull_policy: 'always'
-    container_name: volokut-webhook
-    hostname: volokut-webhook
-    networks:
-      - gateway-network
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
-      - ./webhooks:/etc/webhook
-    command: -verbose -hooks=/etc/webhook/hooks.json
-    
+
 networks:
   gateway-network:
     external: true
